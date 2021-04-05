@@ -25,6 +25,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'digitaltoad/vim-pug'
 Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'neoclide/coc.nvim'
 Plugin 'edkolev/tmuxline.vim'
@@ -79,6 +80,9 @@ nnoremap <C-=> <C-W>=
 
 " FZF Shortcut
 nnoremap <C-P> :FZF <CR>
+
+" FZF Display along the bottom instead of floating
+let g:fzf_layout = { 'down':  '40%'}
 
 " NERDTree Toggle
 nnoremap <C-\> :NERDTreeToggle<CR><C-w>=

@@ -1,6 +1,10 @@
 # Enable all the colours
 export TERM="xterm-256color"
 
+# use the silver surfer ag command instead of fzf default
+# export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_DEFAULT_COMMAND='fd --type f'
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
