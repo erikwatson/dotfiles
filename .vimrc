@@ -14,7 +14,9 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Put Your Plugins Here
 Plugin 'chriskempson/base16-vim'
-Plugin 'scrooloose/nerdtree'
+Plugin 'lambdalisue/fern.vim'
+Plugin 'lambdalisue/nerdfont.vim'
+Plugin 'lambdalisue/fern-renderer-nerdfont.vim'
 Plugin 'beyondwords/vim-twig'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -46,27 +48,12 @@ set relativenumber
 set colorcolumn=80
 set nowrap
 set autoindent
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 set ignorecase
 set encoding=utf-8
 set incsearch
 hi MatchParen cterm=none ctermbg=white ctermfg=white
-
-" Language specific indentation settings
-autocmd Filetype ruby setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd Filetype javascript setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd Filetype typescript setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd Filetype html setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd Filetype css setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd Filetype sass setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd Filetype xml setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd Filetype yaml setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd Filetype pug setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd Filetype html.handlebars setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd Filetype json setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd Filetype apache setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd Filetype markdown setlocal expandtab shiftwidth=2 softtabstop=2
 
 " Faster Split Navigation Shortcuts
 nnoremap <C-H> <C-W><C-H>
@@ -83,11 +70,8 @@ nnoremap <C-P> :FZF <CR>
 " FZF Display along the bottom instead of floating
 let g:fzf_layout = { 'down':  '40%'}
 
-" NERDTree Toggle
-nnoremap <C-\> :NERDTreeToggle<CR><C-w>=
-
-" NERDTree Show Hidden files by Default
-let NERDTreeShowHidden=1
+" Fern Toggle
+nnoremap <C-\> :Fern . -drawer -toggle -keep<CR><C-w>=
 
 " Remove Trailing Whitespace on Save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -106,9 +90,8 @@ let g:airline_powerline_fonts = 1
 let g:airline_#extensions#branch#enables = 1
 let g:airline#extensions#tabline#enabled = 1
 
-" NERDTree Stuff
-" Don't show us vim's temp files in NERDTree
-let NERDTreeIgnore=['\.swp$[[file]]', '\.swo$[[file]]']
+" Nerd Fonts in Fern
+let g:fern#renderer = "nerdfont"
 
 set hlsearch
 
